@@ -1,0 +1,3 @@
+EditEntry
+InsertNewEntry
+ViewEntries

@@ -1,0 +1,22 @@
+SUPPLIER'S NAME	- String
+S.O NO.	- String
+CLIENT	- String
+DATE ITEM/S RECEIVED - Date	
+RTS# - String
+ITEM/S DESCRIPTION - long String, name of model	
+SERIAL NO.	- long String
+DATE  REPORTED	- Date
+QTY.	- int
+PROBLEM	- String
+DATE PULL-OUT BY SUPPLIER - Date	
+DATE RETURN BY SUPPLIER	- Date
+NO. OF NON WORKING DAYS	- int
+TURN AROUND DAYS	- int, DateReturn - DatePullOut - NonWorkingDays
+SUPPLIER POS REF.	- long String
+SUPPLIER RTC REF.	- long String
+QTY. RETURNED 	- int
+QTY. REMAINING	- int, QtyReceived - QtyReturned
+NEW SERIAL NO.	- String
+REMARKS	- very long String
+STATUS	- String
+AGING	- int, ??, DateReceived - Today
