@@ -23,7 +23,8 @@ CREATE TABLE Entry (
 	QuantityReturned int,
 	NewSerial varchar(75),
 	Remarks varchar(300),
-	Status varchar(20)
+	Status varchar(20),
+	Trace int
 );
 
 /*

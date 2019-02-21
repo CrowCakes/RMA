@@ -1,3 +1,4 @@
 EditEntry
+GenerateReport
 InsertNewEntry
 ViewEntries

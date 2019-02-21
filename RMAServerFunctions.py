@@ -6,7 +6,8 @@ from datetime import date
 
 def InputQueries():
 	input_queries = ["InsertNewEntry",
-					"EditEntry"]
+					"EditEntry",
+					"GenerateReport"]
 	return input_queries
 
 # Construct a query from a multiline sql file in queries subdirectory
@@ -63,10 +64,10 @@ def ViewEntries(sqlcursor, connection):
 	DateReported, QuantityReceived, Problem, 
 	DatePullOut, DateReturned, NonWorkingDays, Turnaround,
 	POS, RTC, QuantityReturned, QuantityRemaining,
-	NewSerial, Remarks, Status, Aging) in sqlcursor:
+	NewSerial, Remarks, Status, Aging, Trace) in sqlcursor:
 		#print("{}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}\t").format(EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial, DateReported, QuantityReceived, Problem, DatePullOut, DateReturned, NonWorkingDays, Turnaround, POS, RTC, QuantityReturned, QuantityRemaining, NewSerial, Remarks, Status, Aging)
 		#sys.stdout.flush()
-		connection.sendall(("{}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::\n").format(EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial, DateReported, QuantityReceived, Problem, DatePullOut, DateReturned, NonWorkingDays, Turnaround, POS, RTC, QuantityReturned, QuantityRemaining, NewSerial, Remarks, Status, Aging))
+		connection.sendall(("{}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::\n").format(EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial, DateReported, QuantityReceived, Problem, DatePullOut, DateReturned, NonWorkingDays, Turnaround, POS, RTC, QuantityReturned, QuantityRemaining, NewSerial, Remarks, Status, Aging, Trace))
 		
 def FlushCursor(sqlcursor):
 	print("Flushing cursor")

@@ -7,5 +7,6 @@ SELECT EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial,
 	NewSerial, Remarks, Status,
 	DATEDIFF(DateReceived, CURDATE()) AS Aging,
 	Trace
-FROM Entry 
-ORDER BY EntryID ASC
+FROM Entry
+WHERE DateReported >= %(start)s AND DateReported <= %(end)s 
+ORDER BY DateReported ASC

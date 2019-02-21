@@ -8,4 +8,5 @@ SELECT EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial,
 	DATEDIFF(DateReceived, CURDATE()) AS Aging,
 	Trace
 FROM Entry 
+WHERE RTS LIKE %(rts)s
 ORDER BY EntryID ASC

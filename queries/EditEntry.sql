@@ -17,5 +17,6 @@ RTC = %(rtc)s,
 QuantityReturned = %(quantityreturned)s,
 NewSerial = %(newserial)s, 
 Remarks = %(remarks)s, 
-Status = %(status)s
+Status = %(status)s,
+Trace = %(trace)s
 WHERE EntryID = %(id)s

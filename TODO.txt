@@ -1,0 +1,20 @@
+Search RMA by RTS#
+	- query DONE
+	- server DONE
+	- front-end
+Trace RMA with same RTS#
+	- add SQL table field "Trace" DONE
+	- modify queries DONE
+	- modify server DONE
+	- modify front-end
+Automatically open and close entries based on qty remaining
+	- modify front-end
+
+Generate separate report by supplier performance history
+	- query DONE
+	- front-end
+Generate separate report for client = TSC 
+	- query DONE
+	- front-end
+Generate separate report, by quarter instead of month
+	- front-end

@@ -75,14 +75,18 @@ class RMAServer:
 		else:
 			insert_data = []
 			if user_option in input_required:
-				if (user_option == "InsertNewEntry"):
-					for i in range(19):
+				if (user_option == "GenerateReport" or
+					user_option == "FilterEntries"):
+					data = get_client_input(connection)
+					insert_data.append(data)
+				elif (user_option == "InsertNewEntry"):
+					for i in range(20):
 						data = get_client_input(connection)
 						insert_data.append(data)
 					#drain_client_input(connection)
 						
 				elif (user_option == "EditEntry"):
-					for i in range(20):
+					for i in range(21):
 						data = get_client_input(connection)
 						insert_data.append(data)
 					#drain_client_input(connection)
@@ -127,8 +131,11 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 					'newserial': insert_data[16],
 					'remarks': insert_data[17],
 					'status': insert_data[18],
+					'trace': insert_data[19]
 				}
 				sqlcursor.execute(make_query(option+'.sql'), user_option_data)
+				sql_connection.commit()
+				client_connection.sendall("Successfully completed the operation!")
 				
 			elif (option == "EditEntry"):
 				user_option_data = {
@@ -152,11 +159,22 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 					'newserial': insert_data[17],
 					'remarks': insert_data[18],
 					'status': insert_data[19],
+					'trace': insert_data[20]
 				}
 				sqlcursor.execute(make_query(option+'.sql'), user_option_data)
-			
-			sql_connection.commit()
-			client_connection.sendall("Successfully completed the operation!")
+				sql_connection.commit()
+				client_connection.sendall("Successfully completed the operation!")
+				
+			elif (option == "GenerateReport"):
+				user_option_data = {
+					'start': ("{}-01-01").format(insert_data[0]),
+					'end': ("{}-12-31").format(insert_data[0])
+				}
+				sqlcursor.execute(make_query(option+'.sql'), user_option_data)
+				
+			elif (option == "FilterEntries"):
+				user_option_data = {'rts': ("%{}%").format(insert_data[0])}
+				sqlcursor.execute(make_query(option+'.sql'), user_option_data)
 				
 		except mysql.connector.Error as err:
 			sql_connection.rollback()
@@ -177,7 +195,9 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 			sys.stdout.flush()
 		
 	#send results of view queries
-	if (option == "ViewEntries"):
+	if (option == "ViewEntries" or
+		option == "GenerateReport" or
+		option == "FilterEntries"):
 		ViewEntries(sqlcursor, client_connection)
 	else:
 		FlushCursor(sqlcursor)
