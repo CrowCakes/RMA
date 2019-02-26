@@ -7,7 +7,10 @@ from datetime import date
 def InputQueries():
 	input_queries = ["InsertNewEntry",
 					"EditEntry",
-					"GenerateReport"]
+					"GenerateReport",
+					"GenerateReportTSC",
+					"GenerateReportSupplier",
+					"FilterEntries"]
 	return input_queries
 
 # Construct a query from a multiline sql file in queries subdirectory
@@ -68,6 +71,10 @@ def ViewEntries(sqlcursor, connection):
 		#print("{}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}\t").format(EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial, DateReported, QuantityReceived, Problem, DatePullOut, DateReturned, NonWorkingDays, Turnaround, POS, RTC, QuantityReturned, QuantityRemaining, NewSerial, Remarks, Status, Aging)
 		#sys.stdout.flush()
 		connection.sendall(("{}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::\n").format(EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial, DateReported, QuantityReceived, Problem, DatePullOut, DateReturned, NonWorkingDays, Turnaround, POS, RTC, QuantityReturned, QuantityRemaining, NewSerial, Remarks, Status, Aging, Trace))
+		
+def GenerateReportSupplier(sqlcursor, connection):
+	for (Supplier, Total, Percentage) in sqlcursor:
+		connection.sendall(("{}::, {}::, {}::\n").format(Supplier, Total, Percentage))
 		
 def FlushCursor(sqlcursor):
 	print("Flushing cursor")

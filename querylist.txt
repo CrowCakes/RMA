@@ -1,4 +1,7 @@
 EditEntry
+FilterEntries
 GenerateReport
+GenerateReportSupplier
+GenerateReportTSC
 InsertNewEntry
 ViewEntries

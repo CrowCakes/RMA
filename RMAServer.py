@@ -76,6 +76,8 @@ class RMAServer:
 			insert_data = []
 			if user_option in input_required:
 				if (user_option == "GenerateReport" or
+					user_option == "GenerateReportTSC" or
+					user_option == "GenerateReportSupplier" or
 					user_option == "FilterEntries"):
 					data = get_client_input(connection)
 					insert_data.append(data)
@@ -165,7 +167,9 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 				sql_connection.commit()
 				client_connection.sendall("Successfully completed the operation!")
 				
-			elif (option == "GenerateReport"):
+			elif (option == "GenerateReport" or
+					option == "GenerateReportSupplier" or
+					option == "GenerateReportTSC"):
 				user_option_data = {
 					'start': ("{}-01-01").format(insert_data[0]),
 					'end': ("{}-12-31").format(insert_data[0])
@@ -197,8 +201,11 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 	#send results of view queries
 	if (option == "ViewEntries" or
 		option == "GenerateReport" or
+		option == "GenerateReportTSC" or
 		option == "FilterEntries"):
 		ViewEntries(sqlcursor, client_connection)
+	elif (option == "GenerateReportSupplier"):
+		GenerateReportSupplier(sqlcursor, client_connection)
 	else:
 		FlushCursor(sqlcursor)
 		sys.stdout.flush()
