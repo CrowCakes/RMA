@@ -78,9 +78,11 @@ class RMAServer:
 				if (user_option == "GenerateReport" or
 					user_option == "GenerateReportTSC" or
 					user_option == "GenerateReportSupplier" or
-					user_option == "FilterEntries"):
+					user_option == "FilterEntries" or
+					user_option == "DeleteEntry"):
 					data = get_client_input(connection)
 					insert_data.append(data)
+					
 				elif (user_option == "InsertNewEntry"):
 					for i in range(20):
 						data = get_client_input(connection)
@@ -163,6 +165,13 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 					'status': insert_data[19],
 					'trace': insert_data[20]
 				}
+				sqlcursor.execute(make_query(option+'.sql'), user_option_data)
+				sql_connection.commit()
+				client_connection.sendall("Successfully completed the operation!")
+				
+			elif (option == "DeleteEntry"):
+				user_option_data = {'entryid': insert_data[0]}
+				
 				sqlcursor.execute(make_query(option+'.sql'), user_option_data)
 				sql_connection.commit()
 				client_connection.sendall("Successfully completed the operation!")

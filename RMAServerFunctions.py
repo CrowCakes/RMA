@@ -10,7 +10,8 @@ def InputQueries():
 					"GenerateReport",
 					"GenerateReportTSC",
 					"GenerateReportSupplier",
-					"FilterEntries"]
+					"FilterEntries",
+					"DeleteEntry"]
 	return input_queries
 
 # Construct a query from a multiline sql file in queries subdirectory

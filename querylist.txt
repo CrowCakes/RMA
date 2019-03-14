@@ -1,3 +1,4 @@
+DeleteEntry
 EditEntry
 FilterEntries
 GenerateReport
