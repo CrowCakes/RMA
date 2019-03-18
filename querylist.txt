@@ -2,7 +2,11 @@ DeleteEntry
 EditEntry
 FilterEntries
 GenerateReport
+GenerateOpenReport
+GenerateReportIndividualSupplier
 GenerateReportSupplier
 GenerateReportTSC
 InsertNewEntry
 ViewEntries
+ViewOpenEntries
+ViewSuppliers

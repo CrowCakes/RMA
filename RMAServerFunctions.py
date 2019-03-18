@@ -8,8 +8,10 @@ def InputQueries():
 	input_queries = ["InsertNewEntry",
 					"EditEntry",
 					"GenerateReport",
+					"GenerateOpenReport",
 					"GenerateReportTSC",
 					"GenerateReportSupplier",
+					"GenerateReportIndividualSupplier",
 					"FilterEntries",
 					"DeleteEntry"]
 	return input_queries
@@ -76,7 +78,11 @@ def ViewEntries(sqlcursor, connection):
 def GenerateReportSupplier(sqlcursor, connection):
 	for (Supplier, Total, Percentage) in sqlcursor:
 		connection.sendall(("{}::, {}::, {}::\n").format(Supplier, Total, Percentage))
-		
+
+def ViewSuppliers(sqlcursor, connection):
+	for (Suppliers, foo) in sqlcursor:
+		connection.sendall(("{}::\n").format(Suppliers))
+
 def FlushCursor(sqlcursor):
 	print("Flushing cursor")
 	for line in sqlcursor:

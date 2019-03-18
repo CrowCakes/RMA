@@ -1,0 +1,1 @@
+SELECT DISTINCT Supplier, 1 FROM Entry

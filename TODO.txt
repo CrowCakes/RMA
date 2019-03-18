@@ -1,22 +1,15 @@
-Search RMA by RTS#
-	- query DONE
+Search by Supplier
+	- query DONE - modified FilterEntries
+Display Entry# in table DONE
+View Open entries - DONE
+	- query DONE - ViewOpenEntries.sql
 	- server DONE
 	- front-end DONE
-Trace RMA with same RTS#
-	- add SQL table field "Trace" DONE
-	- modify queries DONE
-	- modify server DONE
-	- modify front-end DONE
-Automatically open and close entries based on qty remaining
-	- modify front-end DONE
-
-Generate separate report by supplier performance history
-	- query DONE
+Report Open entries - DONE
+	- query - GenerateOpenReport.sql
 	- server DONE
 	- front-end DONE
-Generate separate report for client = TSC 
-	- query DONE
+Report by Supplier - DONE
+	- query DONE - ViewSuppliers.sql, GenerateReportIndividualSupplier.sql
 	- server DONE
-	- front-end DONE
-Generate separate report, by quarter instead of month
 	- front-end DONE
