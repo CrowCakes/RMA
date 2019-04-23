@@ -24,6 +24,8 @@ CREATE TABLE Entry (
 	NewSerial varchar(75),
 	Remarks varchar(300),
 	Status varchar(20),
+	SupplierPOS varchar(50),
+	SupplierReturned varchar(50),
 	Trace int
 );
 

@@ -6,7 +6,8 @@ SELECT EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial,
 	QuantityReceived - QuantityReturned AS QuantityRemaining,
 	NewSerial, Remarks, Status,
 	DATEDIFF(DateReceived, CURDATE()) AS Aging,
+	SupplierPOS, SupplierReturned,
 	Trace
 FROM Entry
-WHERE DateReported >= %(start)s AND DateReported <= %(end)s AND Client = "TSC"
+WHERE DateReported >= %(start)s AND DateReported <= %(end)s AND (Client = "TSC" or Client = "Technical Support Center")
 ORDER BY DateReported ASC

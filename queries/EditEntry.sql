@@ -18,5 +18,7 @@ QuantityReturned = %(quantityreturned)s,
 NewSerial = %(newserial)s, 
 Remarks = %(remarks)s, 
 Status = %(status)s,
+SupplierPOS = %(supplierpos)s,
+SupplierReturned = %(supplierreturned)s,
 Trace = %(trace)s
 WHERE EntryID = %(id)s

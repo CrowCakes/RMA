@@ -90,13 +90,13 @@ class RMAServer:
 						insert_data.append(data)
 					
 				elif (user_option == "InsertNewEntry"):
-					for i in range(20):
+					for i in range(22):
 						data = get_client_input(connection)
 						insert_data.append(data)
 					#drain_client_input(connection)
 						
 				elif (user_option == "EditEntry"):
-					for i in range(21):
+					for i in range(23):
 						data = get_client_input(connection)
 						insert_data.append(data)
 					#drain_client_input(connection)
@@ -141,7 +141,9 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 					'newserial': insert_data[16],
 					'remarks': insert_data[17],
 					'status': insert_data[18],
-					'trace': insert_data[19]
+					'supplierpos': insert_data[19],
+					'supplierreturned': insert_data[20],
+					'trace': insert_data[21]
 				}
 				sqlcursor.execute(make_query(option+'.sql'), user_option_data)
 				sql_connection.commit()
@@ -169,7 +171,9 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 					'newserial': insert_data[17],
 					'remarks': insert_data[18],
 					'status': insert_data[19],
-					'trace': insert_data[20]
+					'supplierpos': insert_data[20],
+					'supplierreturned': insert_data[21],
+					'trace': insert_data[22]
 				}
 				sqlcursor.execute(make_query(option+'.sql'), user_option_data)
 				sql_connection.commit()

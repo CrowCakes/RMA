@@ -1,15 +1,2 @@
-Search by Supplier
-	- query DONE - modified FilterEntries
-Display Entry# in table DONE
-View Open entries - DONE
-	- query DONE - ViewOpenEntries.sql
-	- server DONE
-	- front-end DONE
-Report Open entries - DONE
-	- query - GenerateOpenReport.sql
-	- server DONE
-	- front-end DONE
-Report by Supplier - DONE
-	- query DONE - ViewSuppliers.sql, GenerateReportIndividualSupplier.sql
-	- server DONE
-	- front-end DONE
+Fixed query for GenerateReportTSC
+Added 2 new columns to Entry

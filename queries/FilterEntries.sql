@@ -6,6 +6,7 @@ SELECT EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial,
 	QuantityReceived - QuantityReturned AS QuantityRemaining,
 	NewSerial, Remarks, Status,
 	DATEDIFF(DateReceived, CURDATE()) AS Aging,
+	SupplierPOS, SupplierReturned,
 	Trace
 FROM Entry 
 WHERE RTS LIKE %(rts)s OR Supplier LIKE %(rts)s

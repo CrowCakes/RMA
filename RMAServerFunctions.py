@@ -70,10 +70,11 @@ def ViewEntries(sqlcursor, connection):
 	DateReported, QuantityReceived, Problem, 
 	DatePullOut, DateReturned, NonWorkingDays, Turnaround,
 	POS, RTC, QuantityReturned, QuantityRemaining,
-	NewSerial, Remarks, Status, Aging, Trace) in sqlcursor:
+	NewSerial, Remarks, Status, Aging, 
+	SupplierPOS, SupplierReturned, Trace) in sqlcursor:
 		#print("{}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}\t").format(EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial, DateReported, QuantityReceived, Problem, DatePullOut, DateReturned, NonWorkingDays, Turnaround, POS, RTC, QuantityReturned, QuantityRemaining, NewSerial, Remarks, Status, Aging)
 		#sys.stdout.flush()
-		connection.sendall(("{}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::\n").format(EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial, DateReported, QuantityReceived, Problem, DatePullOut, DateReturned, NonWorkingDays, Turnaround, POS, RTC, QuantityReturned, QuantityRemaining, NewSerial, Remarks, Status, Aging, Trace))
+		connection.sendall(("{}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::, {}::\n").format(EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial, DateReported, QuantityReceived, Problem, DatePullOut, DateReturned, NonWorkingDays, Turnaround, POS, RTC, QuantityReturned, QuantityRemaining, NewSerial, Remarks, Status, Aging, SupplierPOS, SupplierReturned, Trace))
 		
 def GenerateReportSupplier(sqlcursor, connection):
 	for (Supplier, Total, Percentage) in sqlcursor:
