@@ -121,88 +121,147 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 	else:
 		try:
 			if (option == "InsertNewEntry"):
-				user_option_data = {
-					'supplier': insert_data[0],
-					'so': insert_data[1],
-					'client': insert_data[2],
-					'datereceived': insert_data[3],
-					'rts': insert_data[4],
-					'description': insert_data[5],
-					'serial': insert_data[6],
-					'datereported': insert_data[7],
-					'quantityreceived': insert_data[8],
-					'problem': insert_data[9],
-					'datepullout': insert_data[10],
-					'datereturned': insert_data[11],
-					'nonworkingdays': insert_data[12],
-					'pos': insert_data[13],
-					'rtc': insert_data[14],
-					'quantityreturned': insert_data[15],
-					'newserial': insert_data[16],
-					'remarks': insert_data[17],
-					'status': insert_data[18],
-					'supplierpos': insert_data[19],
-					'supplierreturned': insert_data[20],
-					'trace': insert_data[21]
-				}
-				sqlcursor.execute(make_query(option+'.sql'), user_option_data)
-				sql_connection.commit()
-				client_connection.sendall("Successfully completed the operation!")
+				if (len(insert_data[0]) <= 50 and
+					len(insert_data[1]) <= 20 and
+					len(insert_data[2]) <= 50 and
+					len(insert_data[3]) == 10 and
+					len(insert_data[4]) <= 20 and
+					len(insert_data[5]) <= 300 and
+					len(insert_data[6]) <= 75 and
+					len(insert_data[7]) <= 10 and
+					str.isdigit(insert_data[8]) and
+					len(insert_data[9]) <= 50 and
+					len(insert_data[10]) == 10 and
+					len(insert_data[11]) == 10 and
+					str.isdigit(insert_data[12]) and
+					len(insert_data[13]) <= 50 and
+					len(insert_data[14]) <= 50 and
+					str.isdigit(insert_data[15]) and
+					len(insert_data[16]) <= 75 and
+					len(insert_data[17]) <= 300 and
+					len(insert_data[18]) <= 20 and
+					len(insert_data[19]) <= 50 and
+					len(insert_data[20]) <= 50 and
+					str.isdigit(insert_data[21])):
+					user_option_data = {
+						'supplier': insert_data[0],
+						'so': insert_data[1],
+						'client': insert_data[2],
+						'datereceived': insert_data[3],
+						'rts': insert_data[4],
+						'description': insert_data[5],
+						'serial': insert_data[6],
+						'datereported': insert_data[7],
+						'quantityreceived': insert_data[8],
+						'problem': insert_data[9],
+						'datepullout': insert_data[10],
+						'datereturned': insert_data[11],
+						'nonworkingdays': insert_data[12],
+						'pos': insert_data[13],
+						'rtc': insert_data[14],
+						'quantityreturned': insert_data[15],
+						'newserial': insert_data[16],
+						'remarks': insert_data[17],
+						'status': insert_data[18],
+						'supplierpos': insert_data[19],
+						'supplierreturned': insert_data[20],
+						'trace': insert_data[21]
+					}
+					sqlcursor.execute(make_query(option+'.sql'), user_option_data)
+					sql_connection.commit()
+					client_connection.sendall("Successfully completed the operation!")
+				else:
+					client_connection.sendall("Something was wrong with the information entered")
 				
 			elif (option == "EditEntry"):
-				user_option_data = {
-					'id': insert_data[0],
-					'supplier': insert_data[1],
-					'so': insert_data[2],
-					'client': insert_data[3],
-					'datereceived': insert_data[4],
-					'rts': insert_data[5],
-					'description': insert_data[6],
-					'serial': insert_data[7],
-					'datereported': insert_data[8],
-					'quantityreceived': insert_data[9],
-					'problem': insert_data[10],
-					'datepullout': insert_data[11],
-					'datereturned': insert_data[12],
-					'nonworkingdays': insert_data[13],
-					'pos': insert_data[14],
-					'rtc': insert_data[15],
-					'quantityreturned': insert_data[16],
-					'newserial': insert_data[17],
-					'remarks': insert_data[18],
-					'status': insert_data[19],
-					'supplierpos': insert_data[20],
-					'supplierreturned': insert_data[21],
-					'trace': insert_data[22]
-				}
-				sqlcursor.execute(make_query(option+'.sql'), user_option_data)
-				sql_connection.commit()
-				client_connection.sendall("Successfully completed the operation!")
+				if (str.isdigit(insert_data[0]) and
+					len(insert_data[1]) <= 50 and
+					len(insert_data[2]) <= 20 and
+					len(insert_data[3]) <= 50 and
+					len(insert_data[4]) == 10 and
+					len(insert_data[5]) <= 20 and
+					len(insert_data[6]) <= 300 and
+					len(insert_data[7]) <= 75 and
+					len(insert_data[8]) <= 10 and
+					str.isdigit(insert_data[9]) and
+					len(insert_data[10]) <= 50 and
+					len(insert_data[11]) == 10 and
+					len(insert_data[12]) == 10 and
+					str.isdigit(insert_data[13]) and
+					len(insert_data[14]) <= 50 and
+					len(insert_data[15]) <= 50 and
+					str.isdigit(insert_data[16]) and
+					len(insert_data[17]) <= 75 and
+					len(insert_data[18]) <= 300 and
+					len(insert_data[19]) <= 20 and
+					len(insert_data[20]) <= 50 and
+					len(insert_data[21]) <= 50 and
+					str.isdigit(insert_data[22])):
+					user_option_data = {
+						'id': insert_data[0],
+						'supplier': insert_data[1],
+						'so': insert_data[2],
+						'client': insert_data[3],
+						'datereceived': insert_data[4],
+						'rts': insert_data[5],
+						'description': insert_data[6],
+						'serial': insert_data[7],
+						'datereported': insert_data[8],
+						'quantityreceived': insert_data[9],
+						'problem': insert_data[10],
+						'datepullout': insert_data[11],
+						'datereturned': insert_data[12],
+						'nonworkingdays': insert_data[13],
+						'pos': insert_data[14],
+						'rtc': insert_data[15],
+						'quantityreturned': insert_data[16],
+						'newserial': insert_data[17],
+						'remarks': insert_data[18],
+						'status': insert_data[19],
+						'supplierpos': insert_data[20],
+						'supplierreturned': insert_data[21],
+						'trace': insert_data[22]
+					}
+					sqlcursor.execute(make_query(option+'.sql'), user_option_data)
+					sql_connection.commit()
+					client_connection.sendall("Successfully completed the operation!")
+				else:
+					client_connection.sendall("Something was wrong with the information entered")
 				
 			elif (option == "DeleteEntry"):
-				user_option_data = {'entryid': insert_data[0]}
-				
-				sqlcursor.execute(make_query(option+'.sql'), user_option_data)
-				sql_connection.commit()
-				client_connection.sendall("Successfully completed the operation!")
+				if (str.isdigit(insert_data[0])):
+					user_option_data = {'entryid': insert_data[0]}
+					
+					sqlcursor.execute(make_query(option+'.sql'), user_option_data)
+					sql_connection.commit()
+					client_connection.sendall("Successfully completed the operation!")
+				else:
+					client_connection.sendall("EntryID sent wasn't a number")
 				
 			elif (option == "GenerateReport" or
 					option == "GenerateOpenReport" or
 					option == "GenerateReportSupplier" or
 					option == "GenerateReportTSC"):
-				user_option_data = {
-					'start': ("{}-01-01").format(insert_data[0]),
-					'end': ("{}-12-31").format(insert_data[0])
-				}
-				sqlcursor.execute(make_query(option+'.sql'), user_option_data)
+				if len(insert_data[0]) == 4:
+					user_option_data = {
+						'start': ("{}-01-01").format(insert_data[0]),
+						'end': ("{}-12-31").format(insert_data[0])
+					}
+					sqlcursor.execute(make_query(option+'.sql'), user_option_data)
+				else:
+					client_connection.sendall("Number sent didn't correspond to a year")
 				
 			elif (option == "GenerateReportIndividualSupplier"):
-				user_option_data = {
-					'start': ("{}-01-01").format(insert_data[0]),
-					'end': ("{}-12-31").format(insert_data[0]),
-					'supplier': insert_data[1]
-				}
-				sqlcursor.execute(make_query(option+'.sql'), user_option_data)
+				if (len(insert_data[0]) == 4 and
+					len(insert_data[1]) <= 50):
+					user_option_data = {
+						'start': ("{}-01-01").format(insert_data[0]),
+						'end': ("{}-12-31").format(insert_data[0]),
+						'supplier': insert_data[1]
+					}
+					sqlcursor.execute(make_query(option+'.sql'), user_option_data)
+				else:
+					client_connection.sendall("Number sent didn't correspond to a year")
 				
 			elif (option == "FilterEntries"):
 				user_option_data = {'rts': ("%{}%").format(insert_data[0])}
