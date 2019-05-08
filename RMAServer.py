@@ -172,6 +172,10 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 					client_connection.sendall("Successfully completed the operation!")
 				else:
 					client_connection.sendall("Something was wrong with the information entered")
+					print(datetime.datetime.now())
+					print("InsertNewEntry: Something's wrong with the data sent")
+					print(insert_data)
+					print("\n")
 				
 			elif (option == "EditEntry"):
 				if (str.isdigit(insert_data[0]) and
@@ -227,6 +231,10 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 					client_connection.sendall("Successfully completed the operation!")
 				else:
 					client_connection.sendall("Something was wrong with the information entered")
+					print(datetime.datetime.now())
+					print("EditEntry: Something's wrong with the data sent")
+					print(insert_data)
+					print("\n")
 				
 			elif (option == "DeleteEntry"):
 				if (str.isdigit(insert_data[0])):
@@ -237,6 +245,10 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 					client_connection.sendall("Successfully completed the operation!")
 				else:
 					client_connection.sendall("EntryID sent wasn't a number")
+					print(datetime.datetime.now())
+					print("DeleteEntry: Something's wrong with the data sent")
+					print(insert_data)
+					print("\n")
 				
 			elif (option == "GenerateReport" or
 					option == "GenerateOpenReport" or
@@ -250,6 +262,10 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 					sqlcursor.execute(make_query(option+'.sql'), user_option_data)
 				else:
 					client_connection.sendall("Number sent didn't correspond to a year")
+					print(datetime.datetime.now())
+					print("Reports: Something's wrong with the data sent")
+					print(insert_data)
+					print("\n")
 				
 			elif (option == "GenerateReportIndividualSupplier"):
 				if (len(insert_data[0]) == 4 and
@@ -262,6 +278,10 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 					sqlcursor.execute(make_query(option+'.sql'), user_option_data)
 				else:
 					client_connection.sendall("Number sent didn't correspond to a year")
+					print(datetime.datetime.now())
+					print("GenerateReportIndividualSupplier: Something's wrong with the data sent")
+					print(insert_data)
+					print("\n")
 				
 			elif (option == "FilterEntries"):
 				user_option_data = {'rts': ("%{}%").format(insert_data[0])}
