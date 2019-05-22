@@ -284,7 +284,7 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 					print("\n")
 				
 			elif (option == "FilterEntries"):
-				user_option_data = {'rts': ("%{}%").format(insert_data[0])}
+				user_option_data = {'rts': insert_data[0]}
 				sqlcursor.execute(make_query(option+'.sql'), user_option_data)
 				
 		except mysql.connector.Error as err:

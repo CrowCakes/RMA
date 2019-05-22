@@ -9,5 +9,5 @@ SELECT EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial,
 	SupplierPOS, SupplierReturned,
 	Trace
 FROM Entry 
-WHERE RTS LIKE %(rts)s OR Supplier LIKE %(rts)s
+WHERE RTS REGEXP %(rts)s OR Supplier REGEXP %(rts)s
 ORDER BY EntryID ASC
