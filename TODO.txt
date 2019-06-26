@@ -1,2 +1,0 @@
-Fixed query for GenerateReportTSC
-Added 2 new columns to Entry
