@@ -15,6 +15,8 @@ CREATE TABLE Entry (
 	DateReported date,
 	QuantityReceived int,
 	Problem varchar(50),
+	ReportedBy varchar(50),
+	TestedBy varchar(50),
 	DatePullOut date,
 	DateReturned date,
 	NonWorkingDays int,

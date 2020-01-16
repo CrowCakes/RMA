@@ -1,13 +1,13 @@
 SELECT EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial, 
-	DateReported, QuantityReceived, Problem, 
+	DateReported, QuantityReceived, Problem, ReportedBy, TestedBy,
 	DatePullOut, DateReturned, NonWorkingDays, 
 	DATEDIFF(DateReturned, DatePullOut) - NonWorkingDays AS Turnaround,
 	POS, RTC, QuantityReturned, 
 	QuantityReceived - QuantityReturned AS QuantityRemaining,
 	NewSerial, Remarks, Status,
-	DATEDIFF(DateReceived, CURDATE()) AS Aging,
+	DATEDIFF(CURDATE(), DateReceived) AS Aging,
 	SupplierPOS, SupplierReturned,
 	Trace
 FROM Entry
 WHERE Status = "Open"
-ORDER BY EntryID ASC
+ORDER BY EntryID DESC

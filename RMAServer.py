@@ -90,13 +90,13 @@ class RMAServer:
 						insert_data.append(data)
 					
 				elif (user_option == "InsertNewEntry"):
-					for i in range(22):
+					for i in range(24):
 						data = get_client_input(connection)
 						insert_data.append(data)
 					#drain_client_input(connection)
 						
 				elif (user_option == "EditEntry"):
-					for i in range(23):
+					for i in range(25):
 						data = get_client_input(connection)
 						insert_data.append(data)
 					#drain_client_input(connection)
@@ -131,18 +131,20 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 					len(insert_data[7]) <= 10 and
 					str.isdigit(insert_data[8]) and
 					len(insert_data[9]) <= 50 and
-					len(insert_data[10]) == 10 and
-					len(insert_data[11]) == 10 and
-					str.isdigit(insert_data[12]) and
-					len(insert_data[13]) <= 50 and
-					len(insert_data[14]) <= 50 and
-					str.isdigit(insert_data[15]) and
-					len(insert_data[16]) <= 75 and
-					len(insert_data[17]) <= 300 and
-					len(insert_data[18]) <= 20 and
-					len(insert_data[19]) <= 50 and
-					len(insert_data[20]) <= 50 and
-					str.isdigit(insert_data[21])):
+					len(insert_data[10]) <= 50 and
+					len(insert_data[11]) <= 50 and
+					len(insert_data[12]) == 10 and
+					len(insert_data[13]) == 10 and
+					str.isdigit(insert_data[14]) and
+					len(insert_data[15]) <= 50 and
+					len(insert_data[16]) <= 50 and
+					str.isdigit(insert_data[17]) and
+					len(insert_data[18]) <= 75 and
+					len(insert_data[19]) <= 300 and
+					len(insert_data[20]) <= 20 and
+					len(insert_data[21]) <= 50 and
+					len(insert_data[22]) <= 50 and
+					str.isdigit(insert_data[23])):
 					user_option_data = {
 						'supplier': insert_data[0],
 						'so': insert_data[1],
@@ -154,18 +156,20 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 						'datereported': insert_data[7],
 						'quantityreceived': insert_data[8],
 						'problem': insert_data[9],
-						'datepullout': insert_data[10],
-						'datereturned': insert_data[11],
-						'nonworkingdays': insert_data[12],
-						'pos': insert_data[13],
-						'rtc': insert_data[14],
-						'quantityreturned': insert_data[15],
-						'newserial': insert_data[16],
-						'remarks': insert_data[17],
-						'status': insert_data[18],
-						'supplierpos': insert_data[19],
-						'supplierreturned': insert_data[20],
-						'trace': insert_data[21]
+						'reportedby': insert_data[10],
+						'testedby': insert_data[11],
+						'datepullout': insert_data[12],
+						'datereturned': insert_data[13],
+						'nonworkingdays': insert_data[14],
+						'pos': insert_data[15],
+						'rtc': insert_data[16],
+						'quantityreturned': insert_data[17],
+						'newserial': insert_data[18],
+						'remarks': insert_data[19],
+						'status': insert_data[20],
+						'supplierpos': insert_data[21],
+						'supplierreturned': insert_data[22],
+						'trace': insert_data[23]
 					}
 					sqlcursor.execute(make_query(option+'.sql'), user_option_data)
 					sql_connection.commit()
@@ -189,18 +193,20 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 					len(insert_data[8]) <= 10 and
 					str.isdigit(insert_data[9]) and
 					len(insert_data[10]) <= 50 and
-					len(insert_data[11]) == 10 and
-					len(insert_data[12]) == 10 and
-					str.isdigit(insert_data[13]) and
-					len(insert_data[14]) <= 50 and
-					len(insert_data[15]) <= 50 and
-					str.isdigit(insert_data[16]) and
-					len(insert_data[17]) <= 75 and
-					len(insert_data[18]) <= 300 and
-					len(insert_data[19]) <= 20 and
-					len(insert_data[20]) <= 50 and
-					len(insert_data[21]) <= 50 and
-					str.isdigit(insert_data[22])):
+					len(insert_data[11]) <= 50 and
+					len(insert_data[12]) <= 50 and
+					len(insert_data[13]) == 10 and
+					len(insert_data[14]) == 10 and
+					str.isdigit(insert_data[15]) and
+					len(insert_data[16]) <= 50 and
+					len(insert_data[17]) <= 50 and
+					str.isdigit(insert_data[18]) and
+					len(insert_data[19]) <= 75 and
+					len(insert_data[20]) <= 300 and
+					len(insert_data[21]) <= 20 and
+					len(insert_data[22]) <= 50 and
+					len(insert_data[23]) <= 50 and
+					str.isdigit(insert_data[24])):
 					user_option_data = {
 						'id': insert_data[0],
 						'supplier': insert_data[1],
@@ -213,18 +219,20 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 						'datereported': insert_data[8],
 						'quantityreceived': insert_data[9],
 						'problem': insert_data[10],
-						'datepullout': insert_data[11],
-						'datereturned': insert_data[12],
-						'nonworkingdays': insert_data[13],
-						'pos': insert_data[14],
-						'rtc': insert_data[15],
-						'quantityreturned': insert_data[16],
-						'newserial': insert_data[17],
-						'remarks': insert_data[18],
-						'status': insert_data[19],
-						'supplierpos': insert_data[20],
-						'supplierreturned': insert_data[21],
-						'trace': insert_data[22]
+						'reportedby': insert_data[11],
+						'testedby': insert_data[12],
+						'datepullout': insert_data[13],
+						'datereturned': insert_data[14],
+						'nonworkingdays': insert_data[15],
+						'pos': insert_data[16],
+						'rtc': insert_data[17],
+						'quantityreturned': insert_data[18],
+						'newserial': insert_data[19],
+						'remarks': insert_data[20],
+						'status': insert_data[21],
+						'supplierpos': insert_data[22],
+						'supplierreturned': insert_data[23],
+						'trace': insert_data[24]
 					}
 					sqlcursor.execute(make_query(option+'.sql'), user_option_data)
 					sql_connection.commit()
@@ -308,6 +316,7 @@ def HandleQuery(option, sqlcursor, client_connection, sql_connection, insert_dat
 	#send results of view queries
 	if (option == "ViewEntries" or
 		option == "ViewOpenEntries" or
+		option == "ViewTSCEntries" or
 		option == "GenerateReport" or
 		option == "GenerateOpenReport" or
 		option == "GenerateReportTSC" or

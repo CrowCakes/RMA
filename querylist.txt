@@ -10,3 +10,4 @@ InsertNewEntry
 ViewEntries
 ViewOpenEntries
 ViewSuppliers
+ViewTSCEntries

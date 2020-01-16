@@ -1,5 +1,5 @@
 SELECT EntryID, Supplier, SO, Client, DateReceived, RTS, Description, Serial, 
-	DateReported, QuantityReceived, Problem, 
+	DateReported, QuantityReceived, Problem, ReportedBy, TestedBy,
 	DatePullOut, DateReturned, NonWorkingDays, 
 	DATEDIFF(DateReturned, DatePullOut) - NonWorkingDays AS Turnaround,
 	POS, RTC, QuantityReturned, 

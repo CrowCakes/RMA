@@ -20,3 +20,6 @@ NEW SERIAL NO.	- String
 REMARKS	- very long String
 STATUS	- String
 AGING	- int, ??, DateReceived - Today
+
+REPORTED BY - String
+TESTED BY - String

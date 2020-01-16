@@ -1,5 +1,5 @@
 INSERT INTO Entry(Supplier, SO, Client, DateReceived, RTS, Description, Serial, 
-	DateReported, QuantityReceived, Problem, 
+	DateReported, QuantityReceived, Problem, ReportedBy, TestedBy,
 	DatePullOut, DateReturned, NonWorkingDays,
 	POS, RTC, QuantityReturned,
 	NewSerial, Remarks, Status, 
